@@ -1,4 +1,4 @@
-package com.generate.dbgenerate.model.dto;
+package com.generate.dbgenerate.dto;
 
 import lombok.Data;
 

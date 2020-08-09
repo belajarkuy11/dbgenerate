@@ -15,29 +15,27 @@ public class Murid implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private Integer id;
 
 	private String alamat;
-
-	private Long kelas;
 
 	private String nama;
 
 	private Long umur;
 
-	//bi-directional one-to-one association to Kela
-	@OneToOne
-	@JoinColumn(name="id")
+	//bi-directional many-to-one association to Kela
+	@ManyToOne
+	@JoinColumn(name="kelas")
 	private Kela kela;
 
 	public Murid() {
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -47,14 +45,6 @@ public class Murid implements Serializable {
 
 	public void setAlamat(String alamat) {
 		this.alamat = alamat;
-	}
-
-	public Long getKelas() {
-		return this.kelas;
-	}
-
-	public void setKelas(Long kelas) {
-		this.kelas = kelas;
 	}
 
 	public String getNama() {

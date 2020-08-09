@@ -5,8 +5,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.generate.dbgenerate.dto.KelasDto;
 import com.generate.dbgenerate.model.Kela;
-import com.generate.dbgenerate.model.dto.KelasDto;
 import com.generate.dbgenerate.repository.KelasRepository;
 import java.util.Optional;
 

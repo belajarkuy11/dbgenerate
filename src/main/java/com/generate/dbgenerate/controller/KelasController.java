@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.generate.dbgenerate.dto.KelasDto;
 import com.generate.dbgenerate.model.Kela;
-import com.generate.dbgenerate.model.dto.KelasDto;
 import com.generate.dbgenerate.service.KelasService;
 
 @RestController

@@ -6,13 +6,12 @@ import java.util.List;
 
 
 /**
- * The persistent class for the kelas database table.
+ * The persistent class for the guru database table.
  * 
  */
 @Entity
-@Table(name="kelas")
-@NamedQuery(name="Kela.findAll", query="SELECT k FROM Kela k")
-public class Kela implements Serializable {
+@NamedQuery(name="Guru.findAll", query="SELECT g FROM Guru g")
+public class Guru implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -21,15 +20,16 @@ public class Kela implements Serializable {
 
 	private String nama;
 
+	//bi-directional many-to-one association to Matpel
+	@ManyToOne
+	@JoinColumn(name="matpel")
+	private Matpel matpelBean;
+
 	//bi-directional many-to-one association to Jadwal
-	@OneToMany(mappedBy="kela")
+	@OneToMany(mappedBy="guruBean")
 	private List<Jadwal> jadwals;
 
-	//bi-directional many-to-one association to Murid
-	@OneToMany(mappedBy="kela")
-	private List<Murid> murids;
-
-	public Kela() {
+	public Guru() {
 	}
 
 	public Long getId() {
@@ -48,6 +48,14 @@ public class Kela implements Serializable {
 		this.nama = nama;
 	}
 
+	public Matpel getMatpelBean() {
+		return this.matpelBean;
+	}
+
+	public void setMatpelBean(Matpel matpelBean) {
+		this.matpelBean = matpelBean;
+	}
+
 	public List<Jadwal> getJadwals() {
 		return this.jadwals;
 	}
@@ -58,38 +66,16 @@ public class Kela implements Serializable {
 
 	public Jadwal addJadwal(Jadwal jadwal) {
 		getJadwals().add(jadwal);
-		jadwal.setKela(this);
+		jadwal.setGuruBean(this);
 
 		return jadwal;
 	}
 
 	public Jadwal removeJadwal(Jadwal jadwal) {
 		getJadwals().remove(jadwal);
-		jadwal.setKela(null);
+		jadwal.setGuruBean(null);
 
 		return jadwal;
-	}
-
-	public List<Murid> getMurids() {
-		return this.murids;
-	}
-
-	public void setMurids(List<Murid> murids) {
-		this.murids = murids;
-	}
-
-	public Murid addMurid(Murid murid) {
-		getMurids().add(murid);
-		murid.setKela(this);
-
-		return murid;
-	}
-
-	public Murid removeMurid(Murid murid) {
-		getMurids().remove(murid);
-		murid.setKela(null);
-
-		return murid;
 	}
 
 }

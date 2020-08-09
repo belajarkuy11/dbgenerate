@@ -3,5 +3,9 @@
 	<persistence-unit name="dbgenerate">
 		<class>com.generate.dbgenerate.model.Kela</class>
 		<class>com.generate.dbgenerate.model.Murid</class>
+		<class>com.generate.dbgenerate.model.Guru</class>
+		<class>com.generate.dbgenerate.model.Jadwal</class>
+		<class>com.generate.dbgenerate.model.Matpel</class>
+		<class>com.generate.dbgenerate.model.Lab</class>
 	</persistence-unit>
 </persistence>
